@@ -1,0 +1,34 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+>
+    <Button
+        press="onPressback"
+        icon="sap-icon://home"
+        tooltip="{i18n>toolHome}"
+        type="Transparent"
+    />
+    <Text
+        text="{LoginModel>/HeaderName}"
+        class="boldBlackText"
+    />
+    <ToolbarSpacer />
+    <!-- <Button
+        press="Tile_NotifictionBTN"
+        icon="sap-icon://bell"
+        visible="{= ${LoginModel>/Role} !== 'Contractor' }"
+    /> -->
+    <Button press="Tile_NotifictionBTN" class="sapUiTinyMarginBeginEnd" icon="sap-icon://bell" type="Transparent" visible="{= ${LoginModel>/Role} !== 'Contractor' }">
+
+	<customData >
+		<BadgeCustomData class="badgeClass" key="badge" value="{EndingSoonModel>/notificationCount}"/>
+	</customData>
+
+	</Button>
+    <Button
+        press="onLogout"
+        icon="sap-icon://log"
+        tooltip="{i18n>logoutTooltip}"
+        type="Transparent"
+    />
+</core:FragmentDefinition>
