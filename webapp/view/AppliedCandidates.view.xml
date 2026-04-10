@@ -92,12 +92,12 @@
                     <fb:control>
                         <ComboBox
                             id="filterExperience"
-                            items="{path: 'Experience>/data'}"
+                            items="{path: 'ExperienceModel>/data'}"
                             showClearIcon="true"
                         >
                             <core:Item
-                                key="{Experience>key}"
-                                text="{Experience>value}"
+                                key="{ExperienceModel>key}"
+                                text="{ExperienceModel>value}"
                             />
                         </ComboBox>
                     </fb:control>

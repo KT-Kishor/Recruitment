@@ -24,12 +24,13 @@ sap.ui.define(
             _onObjectMatched: async function () {
                 this.i18nModel = this.getOwnerComponent().getModel("i18n").getResourceBundle()
                 try {
-                    var LoginFUnction = await this.commonLoginFunction("JobPosting");
-                    if (!LoginFUnction) {
-                        return;
-                    }
+                    // var LoginFUnction = await this.commonLoginFunction("JobPosting");
+                    // if (!LoginFUnction) {
+                    //     return;
+                    // }
                     
                     await this._fetchJobOpenings();
+                    // await this.onFilterBarSearch();
                     //  i18n + validation init
                     this.i18na = this.getView().getModel("i18n")?.getResourceBundle();
 
@@ -1420,7 +1421,7 @@ sap.ui.define(
                     async () => {
                         this.getBusyDialog();
                         try {
-                            await this.ajaxDeleteWithJQuery(`JobOpenings(${oJobData.ID})`);
+                            await this.ajaxDeleteWithJQuery("JobOpenings", sPayload);
                             MessageToast.show(this.i18na.getText("DeleteJPSucces"));
                             this._fetchJobOpenings();
                             oTable.removeSelections(true);

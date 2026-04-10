@@ -14,8 +14,8 @@ sap.ui.define(["./BaseController", "sap/ui/model/json/JSONModel", "sap/ui/model/
             router.getRoute("AppliedCandidates").attachPatternMatched(this._onObjectMatched, this);
         },
         _onObjectMatched: async function () {
-            var LoginFUnction = await this.commonLoginFunction("AppliedCandidates");
-            if (!LoginFUnction) return;
+            // var LoginFUnction = await this.commonLoginFunction("AppliedCandidates");
+            // if (!LoginFUnction) return;
             this.getView().setModel(
                 new JSONModel({
                     minnDate: new Date(),
@@ -70,6 +70,7 @@ sap.ui.define(["./BaseController", "sap/ui/model/json/JSONModel", "sap/ui/model/
                 }),
                 "viewModel"
             );
+            // await this.onFilterBarSearch();
             this._FragmentDatePickersReadOnly(["FM_Id_DateAvlForInterview"]);
             this.initializeBirthdayCarousel();
         },
@@ -242,6 +243,16 @@ sap.ui.define(["./BaseController", "sap/ui/model/json/JSONModel", "sap/ui/model/
                 };
                 const response = await this.ajaxReadWithJQuery("customReadCall", oQueryParameters);
                 const aCandidates = response.data || [];
+
+                aCandidates.forEach(item => {
+                    if (
+                        !item.CreateDate ||
+                        item.CreateDate === "1899-11-30T00:00:00.000Z" ||
+                        item.CreateDate === "0000-00-00"
+                    ) {
+                        item.CreateDate = "";
+                    }
+                });
                 this.getOwnerComponent().setModel(new sap.ui.model.json.JSONModel(aCandidates), "DataTableModel");
                 const nameSet = new Set(aCandidates.map((c) => c.FullName).filter(Boolean));
                 this.getView().setModel(
