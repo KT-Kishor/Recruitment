@@ -71,6 +71,7 @@
                         tooltip="{i18n>onboardTraineeTool}"
                         text="{i18n>generateOffer}"
                         id="ACD_id_EmpOnBoard"
+                        enabled="false"
                         press="ACD_onBoardCandidate"
                         type="Transparent"
                     />

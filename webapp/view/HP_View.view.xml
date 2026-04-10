@@ -109,9 +109,9 @@
                                 showClearIcon="true"
                                 placeholder="Choose Status"
                                 id="filterStatus"
-                                items="{BackendStatusModel>/}"
+                                items="{path:'BackendStatusModel>/'}"
                             >
-                                <core:Item
+                                <core:ListItem
                                     key="{BackendStatusModel>key}"
                                     text="{BackendStatusModel>text}"
                                 />

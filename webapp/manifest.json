@@ -51,6 +51,26 @@
         "settings": {
           "bundleName": "kt.ai.sap.com.recruitment.i18n.i18n"
         }
+      },
+      "ExperienceModel": {
+        "type": "sap.ui.model.json.JSONModel",
+        "uri": "model/Experience.json",
+        "preload": true
+      },
+       "WorkingMode": {
+        "type": "sap.ui.model.json.JSONModel",
+        "uri": "model/WorkingMode.json",
+        "preload": true
+      },
+       "QualificationModel": {
+        "type": "sap.ui.model.json.JSONModel",
+        "uri": "model/qualifications.json",
+        "preload": true
+      },
+      "NoticePeriod": {
+        "type": "sap.ui.model.json.JSONModel",
+        "uri": "model/noticePeriod.json",
+        "preload": true
       }
     },
     "resources": {

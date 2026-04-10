@@ -71,36 +71,8 @@ sap.ui.define([
 
         if (value && TileModel) {
           const tileMap = {
-            "EmployeeOffer": "/GenerateEmployeeOffer",
-            "Holiday": "/ListOfHolidays",
-            "SelfService": "/SelfService",
-            "EmployeeDetails": "/EmployeeDetail",
-            "TilePage": "/TilePage",
-            "Quotation": "/A_Quotations",
-            "Payroll": "/A_Payroll",
-            "Trainee": "/Trainee",
-            "Contract": "/GenerateContract",
-            "ManageAssignment": "/AssignmentTask",
-            "Expense": "/ExpenseApp",
-            "MSA&SOW": "/GenerateMsaNda",
-            "HrQuotation": "/QuotationApp",
-            "PaySlip": "/AdminPaySlip",
-            "CompanyInvoice": "/InvoiceApp",
-            "Leaves": "/Leaves",
-            "ConsultantInvoice": "/ConsultantInvoice",
-            "MyInbox": "/MyInbox",
-            "Timesheet": "/Timesheet",
-            "TimesheetApproval": "/TimesheetApproval",
-            "Recruitment": "/Recruitment",
-            "PurchaseOrder": "/PurchaseOrder",
-            "A_Quotations": "/A_Quotations",
             "AppliedCandidates": "/AppliedCandidates",
             "JobPosting": "/JobPosting",
-            "MaintainData": "/MaintainData",
-            "Allowance": "/AllowanceApp",
-            "Greeting": "/GreetingApp",
-            "LeaveOverview": "/LeaveOverview",
-            "RaiseBug": "/RaiseBug"
           };
 
           const modelPath = tileMap[value];
@@ -713,7 +685,7 @@ sap.ui.define([
     getBusyDialog: function () {
       if (!this._pBusyDialog) {
         this._pBusyDialog = sap.ui.core.Fragment.load({
-          name: "sap.kt.com.minihrsolution.fragment.BusyIndicator",
+          name: "kt.ai.sap.com.recruitment.fragment.BusyIndicator",
           controller: this
         }).then(function (oBusyDialog) {
           this.getView().addDependent(oBusyDialog);

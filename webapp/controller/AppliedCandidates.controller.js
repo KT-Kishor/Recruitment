@@ -3,12 +3,19 @@ sap.ui.define(["./BaseController", "sap/ui/model/json/JSONModel", "sap/ui/model/
         formatter: formatter,
         onInit: function () {
             const router = this.getOwnerComponent().getRouter();
+            this.getView().setModel(new JSONModel(), "stuDataModel");
+            this.getView().setModel(
+                new JSONModel({
+                    Editable: true
+                }),
+                "EditableModeltruefalse"
+            );
+            this.i18na = this.getOwnerComponent().getModel("i18n").getResourceBundle();
             router.getRoute("AppliedCandidates").attachPatternMatched(this._onObjectMatched, this);
         },
         _onObjectMatched: async function () {
             var LoginFUnction = await this.commonLoginFunction("AppliedCandidates");
             if (!LoginFUnction) return;
-            this.i18na = this.getOwnerComponent().getModel("i18n").getResourceBundle();
             this.getView().setModel(
                 new JSONModel({
                     minnDate: new Date(),
@@ -33,12 +40,12 @@ sap.ui.define(["./BaseController", "sap/ui/model/json/JSONModel", "sap/ui/model/
                 }),
                 "modelValuStateError"
             );
-            this.getView().setModel(
-                new JSONModel({
-                    Editable: true,
-                }),
-                "EditableModeltruefalse"
-            );
+            // this.getView().setModel(
+            //     new JSONModel({
+            //         Editable: true,
+            //     }),
+            //     "EditableModeltruefalse"
+            // );
             this.getView().setModel(
                 new JSONModel({
                     results: [{
@@ -454,12 +461,12 @@ sap.ui.define(["./BaseController", "sap/ui/model/json/JSONModel", "sap/ui/model/
                             ID: sID,
                         },
                     });
-                    MessageToast.show(this.i18na.getText("dataDelteSucces"));
                     this.AC_ReadCall(); // Refresh the table
                 } catch (error) {
                     MessageToast.show("Delete failed.");
                 } finally {
                     this.closeBusyDialog();
+                    MessageToast.show(this.i18na.getText("dataDelteSucces"));
                     oTable.removeSelections();
                 }
             });

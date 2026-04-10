@@ -18,8 +18,8 @@ sap.ui.define([
 
         _onObjectMatched: async function (oEvent) {
             this.getView().getModel("viewModel").setProperty("/isEditMode", false);
-            var LoginFUnction = await this.commonLoginFunction("Recruitment");
-            if (!LoginFUnction) return;
+            // var LoginFUnction = await this.commonLoginFunction("Recruitment");
+            // if (!LoginFUnction) return;
             this.i18na = this.getOwnerComponent().getModel("i18n").getResourceBundle();
             this.getBusyDialog();
 
@@ -57,6 +57,7 @@ sap.ui.define([
                         }] : []
                     });
                     this.getView().setModel(oTokenModel, "tokenModel");
+                    console.log(candidateData);
                 }
 
                 this.closeBusyDialog();
