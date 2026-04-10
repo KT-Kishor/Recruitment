@@ -33,7 +33,7 @@
     }
   },
   "sap.ui5": {
-    "flexEnabled": true,
+    "flexEnabled": false,
     "dependencies": {
       "minUI5Version": "1.146.0",
       "libs": {
@@ -73,26 +73,67 @@
         "viewPath": "kt.ai.sap.com.recruitment.view"
       },
       "routes": [
-        {
-          "name": "RouteView1",
-          "pattern": ":?query:",
-          "target": [
-            "TargetView1"
-          ]
-        }
-      ],
+                {
+                    "name": "RouteTilePage",
+                    "pattern": ":?query:",
+                    "target": "TargetTilePage"
+                },
+                {
+                    "name": "AppliedCanDetail",
+                    "pattern": "AppliedCanDetail/{id}",
+                    "target": [
+                        "TargetAppliedCanDetail"
+                    ]
+                },
+                {
+                    "name": "AppliedCandidates",
+                    "pattern": "AppliedCandidates",
+                    "target": [
+                        "TargetAppliedCandidates"
+                    ]
+                },
+                {
+                    "name": "RouteHP_View",
+                    "pattern": "HP_View",
+                    "target": [
+                        "TargetHP_View"
+                    ]
+                }
+            ],
       "targets": {
-        "TargetView1": {
-          "id": "View1",
-          "name": "View1"
-        }
-      }
-    },
+                "TargetTilePage": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "viewId": "TilePage",
+                    "viewName": "TilePage"
+                },
+                "TargetAppliedCanDetail": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearControlAggregation": false,
+                    "viewId": "AppliedCanDetail",
+                    "viewName": "AppliedCanDetail"
+                },
+                "TargetAppliedCandidates": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearControlAggregation": false,
+                    "viewId": "AppliedCandidates",
+                    "viewName": "AppliedCandidates"
+                },
+                "TargetHP_View": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearControlAggregation": false,
+                    "viewId": "HP_View",
+                    "viewName": "HP_View"
+                }
+            }
+        },
     "rootView": {
       "viewName": "kt.ai.sap.com.recruitment.view.App",
       "type": "XML",
-      "id": "App",
-      "async": true
+      "id": "App"
     }
   }
 }
