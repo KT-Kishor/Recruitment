@@ -12,17 +12,17 @@ sap.ui.define(
             onInit: function () {
                 this._autoScrollTimer = null;
                 const model = new JSONModel({
-            // for Database connection
-            url: "https://rest.kalpavrikshatechnologies.com/",
-            headers: {
-              name: "$2a$12$LC.eHGIEwcbEWhpi9gEA.umh8Psgnlva2aGfFlZLuMtPFjrMDwSui",
-              password:
-                "$2a$12$By8zKifvRcfxTbabZJ5ssOsheOLdAxA2p6/pdaNvv1xy1aHucPm0u",
-              "Content-Type": "application/json",
-            },
-            isRadioVisible: false,
-          });
-          this.getOwnerComponent().setModel(model, "LoginModel");
+                    // for Database connection
+                    url: "https://rest.kalpavrikshatechnologies.com/",
+                    headers: {
+                        name: "$2a$12$LC.eHGIEwcbEWhpi9gEA.umh8Psgnlva2aGfFlZLuMtPFjrMDwSui",
+                        password:
+                            "$2a$12$By8zKifvRcfxTbabZJ5ssOsheOLdAxA2p6/pdaNvv1xy1aHucPm0u",
+                        "Content-Type": "application/json",
+                    },
+                    isRadioVisible: false,
+                });
+                this.getOwnerComponent().setModel(model, "LoginModel");
                 this.getRouter().getRoute("RouteTilePage").attachMatched(this._onRouteMatched, this);
             },
 
@@ -125,6 +125,11 @@ sap.ui.define(
 
             TileV_JobPosting: function () {
                 this.getRouter().navTo("RouteHP_View");
+            },
+            TileV_onPressOffer: function () {
+                this.getRouter().navTo("RouteEmployeeOffer", {
+                    valueEmp: "EmployeeOffer",
+                });
             },
         });
     });
