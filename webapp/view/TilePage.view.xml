@@ -24,27 +24,13 @@
                 />
                 <ToolbarSpacer />
                 <!-- <Button press="Tile_NotifictionBTN" icon="sap-icon://bell" visible="{= ${LoginModel>/Role} !== 'Contractor' }"/> -->
-                <Button
-                    press="Tile_NotifictionBTN"
-                    class="sapUiTinyMarginBeginEnd"
-                    icon="sap-icon://bell"
-                    type="Transparent"
-                    visible="{= ${LoginModel>/Role} !== 'Contractor' }"
-                    tooltip="{i18n>TilenotificationfragName}"
-                >
+                <Button press="Tile_NotifictionBTN" class="sapUiTinyMarginBeginEnd" icon="sap-icon://bell" type="Transparent" visible="{= ${LoginModel>/Role} !== 'Contractor' }" tooltip="{i18n>TilenotificationfragName}">
                     <customData>
-                        <BadgeCustomData
-                            class="badgeClass"
-                            key="badge"
-                            value="{EndingSoonModel>/notificationCount}"
-                        />
+                        <BadgeCustomData class="badgeClass" key="badge" value="{EndingSoonModel>/notificationCount}"/>
                     </customData>
                 </Button>
 
-                <Button
-                    press="TileV_onBackPress"
-                    icon="sap-icon://log"
-                />
+                <Button press="TileV_onBackPress" icon="sap-icon://log"/>
             </headerContent>
             <l:ResponsiveSplitter height="100%">
                 <l:PaneContainer orientation="Horizontal">
@@ -68,43 +54,24 @@
                                     visible="{= ${TileAccessModel>/Recruitment} === '1' ? true : false}"
                                 >
                                     <ux:subSections>
-                                        <ux:ObjectPageSubSection
-                                            titleUppercase="false"
-                                        >
+                                        <ux:ObjectPageSubSection titleUppercase="false">
                                             <ux:blocks>
-                                                <layout:HorizontalLayout
-                                                    allowWrapping="true"
-                                                    class="sapUiTinyMargin"
-                                                >
-                                                    <!-- <GenericTile visible="{= ${AppVisibilityModel>/RecruitmentApp} === '1' ? true : false}" class="sapUiMediumMargin" header="{i18n>headerrecruitment}" press="TileV_Recruitment"><TileContent unit="{i18n>assetFooter}"><ImageContent src="sap-icon://add-employee" /></TileContent></GenericTile> -->
-                                                    <!-- <GenericTile header="Chat App" class="sapUiMediumMargin" press="Tile_ChatApp"><TileContent unit="{i18n>assetFooter}"><ImageContent src="sap-icon://message-popup" /></TileContent></GenericTile> -->
-                                                    <GenericTile
-                                                        visible="{= ${AppVisibilityModel>/RecruitmentApp} === '1' ? true : false}"
-                                                        class="sapUiMediumMargin glassTile blue"
-                                                        header="{i18n>TableHeader}"
-                                                        press="TileV_RecruitementDashbord"
-                                                    >
-                                                        <TileContent
-                                                            unit="{i18n>assetFooter}"
-                                                        >
-                                                            <ImageContent
-                                                                src="sap-icon://add-employee"
-                                                            />
+                                                <layout:HorizontalLayout allowWrapping="true" class="sapUiTinyMargin">
+
+                                                    <GenericTile visible="{= ${AppVisibilityModel>/GenerateEmployeeOffer} === '1' ? true : false}" class="sapUiMediumMargin glassTile blue" header="{i18n>headerEmployeeOffer}" press="TileV_onPressOffer" subheader="{i18n>subhead}">
+                                                        <TileContent unit="{i18n>tileUnit}" >
+                                                            <ImageContent src="sap-icon://employee-approvals"/>
                                                         </TileContent>
                                                     </GenericTile>
-                                                    <GenericTile
-                                                        visible="{= ${AppVisibilityModel>/JobPosting} === '1' ? true : false}"
-                                                        class="sapUiMediumMargin glassTile blue"
-                                                        header="{i18n>JobPosting}"
-                                                        press="TileV_JobPosting"
-                                                    >
-                                                        <TileContent
-                                                            unit="{i18n>careers}"
-                                                        >
-                                                            <!-- <ImageContent src="sap-icon://employee-lookup" /> -->
-                                                            <ImageContent
-                                                                src="sap-icon://visits"
-                                                            />
+
+                                                    <GenericTile visible="{= ${AppVisibilityModel>/RecruitmentApp} === '1' ? true : false}" class="sapUiMediumMargin glassTile blue" header="{i18n>TableHeader}" press="TileV_RecruitementDashbord">
+                                                        <TileContent unit="{i18n>assetFooter}">
+                                                            <ImageContent src="sap-icon://add-employee"/>
+                                                        </TileContent>
+                                                    </GenericTile>
+                                                    <GenericTile visible="{= ${AppVisibilityModel>/JobPosting} === '1' ? true : false}" class="sapUiMediumMargin glassTile blue" header="{i18n>JobPosting}" press="TileV_JobPosting">
+                                                        <TileContent unit="{i18n>careers}">
+                                                            <ImageContent src="sap-icon://visits"/>
                                                         </TileContent>
                                                     </GenericTile>
                                                 </layout:HorizontalLayout>

@@ -57,14 +57,34 @@
         "uri": "model/Experience.json",
         "preload": true
       },
-       "WorkingMode": {
+      "EmployeeStatus": {
+        "type": "sap.ui.model.json.JSONModel",
+        "uri": "model/EmployeeStatus.json",
+        "preload": true
+      },
+      "WorkingMode": {
         "type": "sap.ui.model.json.JSONModel",
         "uri": "model/WorkingMode.json",
         "preload": true
       },
-       "QualificationModel": {
+      "QualificationModel": {
         "type": "sap.ui.model.json.JSONModel",
         "uri": "model/qualifications.json",
+        "preload": true
+      },
+      "Salutation": {
+        "type": "sap.ui.model.json.JSONModel",
+        "uri": "model/Salutation.json",
+        "preload": true
+      },
+      "BondModel": {
+        "type": "sap.ui.model.json.JSONModel",
+        "uri": "model/Bond.json",
+        "preload": true
+      },
+      "GenderModel": {
+        "type": "sap.ui.model.json.JSONModel",
+        "uri": "model/Gender.json",
         "preload": true
       },
       "NoticePeriod": {
@@ -93,63 +113,85 @@
         "viewPath": "kt.ai.sap.com.recruitment.view"
       },
       "routes": [
-                {
-                    "name": "RouteTilePage",
-                    "pattern": ":?query:",
-                    "target": "TargetTilePage"
-                },
-                {
-                    "name": "AppliedCanDetail",
-                    "pattern": "AppliedCanDetail/{id}",
-                    "target": [
-                        "TargetAppliedCanDetail"
-                    ]
-                },
-                {
-                    "name": "AppliedCandidates",
-                    "pattern": "AppliedCandidates",
-                    "target": [
-                        "TargetAppliedCandidates"
-                    ]
-                },
-                {
-                    "name": "RouteHP_View",
-                    "pattern": "HP_View",
-                    "target": [
-                        "TargetHP_View"
-                    ]
-                }
-            ],
-      "targets": {
-                "TargetTilePage": {
-                    "viewType": "XML",
-                    "transition": "slide",
-                    "viewId": "TilePage",
-                    "viewName": "TilePage"
-                },
-                "TargetAppliedCanDetail": {
-                    "viewType": "XML",
-                    "transition": "slide",
-                    "clearControlAggregation": false,
-                    "viewId": "AppliedCanDetail",
-                    "viewName": "AppliedCanDetail"
-                },
-                "TargetAppliedCandidates": {
-                    "viewType": "XML",
-                    "transition": "slide",
-                    "clearControlAggregation": false,
-                    "viewId": "AppliedCandidates",
-                    "viewName": "AppliedCandidates"
-                },
-                "TargetHP_View": {
-                    "viewType": "XML",
-                    "transition": "slide",
-                    "clearControlAggregation": false,
-                    "viewId": "HP_View",
-                    "viewName": "HP_View"
-                }
-            }
+        {
+          "name": "RouteTilePage",
+          "pattern": ":?query:",
+          "target": "TargetTilePage"
         },
+        {
+          "name": "AppliedCanDetail",
+          "pattern": "AppliedCanDetail/{id}",
+          "target": [
+            "TargetAppliedCanDetail"
+          ]
+        },
+        {
+          "name": "AppliedCandidates",
+          "pattern": "AppliedCandidates",
+          "target": [
+            "TargetAppliedCandidates"
+          ]
+        },
+        {
+          "name": "RouteHP_View",
+          "pattern": "HP_View",
+          "target": [
+            "TargetHP_View"
+          ]
+        },
+        {
+          "name": "RouteEmployeeOffer",
+          "pattern": "EmployeeOffer/{valueEmp}",
+          "target": ["TargetEmployeeOffer"]
+        },
+        {
+          "name": "RouteEmployeeOfferDetails",
+          "pattern": "EmployeeOfferDetails/{sParOffer}/{sParEmployee}",
+          "target": ["TargetEmployeeOfferDetails"]
+        }
+      ],
+      "targets": {
+        "TargetTilePage": {
+          "viewType": "XML",
+          "transition": "slide",
+          "viewId": "TilePage",
+          "viewName": "TilePage"
+        },
+        "TargetAppliedCanDetail": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "AppliedCanDetail",
+          "viewName": "AppliedCanDetail"
+        },
+        "TargetAppliedCandidates": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "AppliedCandidates",
+          "viewName": "AppliedCandidates"
+        },
+        "TargetHP_View": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "HP_View",
+          "viewName": "HP_View"
+        },
+        "TargetEmployeeOffer": {
+          "viewType": "XML",
+          "transition": "slide",
+          "viewId": "EmployeeOffer",
+          "viewName": "EmployeeOffer"
+        },
+        "TargetEmployeeOfferDetails": {
+          "viewType": "XML",
+          "transition": "slide",
+          "viewId": "EmployeeOfferDetails",
+          "viewName": "EmployeeOfferDetails"
+        }
+      }
+    },
     "rootView": {
       "viewName": "kt.ai.sap.com.recruitment.view.App",
       "type": "XML",
